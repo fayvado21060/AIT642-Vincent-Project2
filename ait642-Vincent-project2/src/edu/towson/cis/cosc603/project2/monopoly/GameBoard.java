@@ -212,4 +212,26 @@ public class GameBoard {
 	public void sendToJail(Player player, MonopolyGUI gui, GameMaster gameMaster) {
 		gameMaster.sendToJail(player, gui, this);
 	}
+
+	/**
+	 * Move player.
+	 * @param player  the player
+	 * @param diceValue  the dice value
+	 * @param gui
+	 * @param gameMaster
+	 */
+	public void movePlayer(Player player, int diceValue, MonopolyGUI gui,
+			GameMaster gameMaster) {
+		IOwnable currentPosition = player.getPosition();
+		int positionIndex = queryCellIndex(currentPosition.getName());
+		int newIndex = (positionIndex + diceValue) % getCellNumber();
+		if (newIndex <= positionIndex || diceValue > getCellNumber()) {
+			player.setMoney(player.getMoney() + 200);
+		}
+		player.setPosition(getCell(newIndex));
+		gui.movePlayer(gameMaster.getPlayerIndex(player), positionIndex,
+				newIndex);
+		gameMaster.playerMoved(player);
+		gameMaster.updateGUI();
+	}
 }

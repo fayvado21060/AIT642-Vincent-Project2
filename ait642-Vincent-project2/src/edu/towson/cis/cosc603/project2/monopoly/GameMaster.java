@@ -144,7 +144,7 @@ public class GameMaster {
 					.append(" and ")
 					.append(rolls[1]);
 			gui.showMessage(msg.toString());
-			movePlayer(player, rolls[0] + rolls[1]);
+			gameBoard.movePlayer(player, rolls[0] + rolls[1], gui, this);
 			gui.setBuyHouseEnabled(false);
 		}
     }
@@ -318,7 +318,7 @@ public class GameMaster {
 	 */
 	public void movePlayer(int playerIndex, int diceValue) {
 		Player player = (Player)players.get(playerIndex);
-		movePlayer(player, diceValue);
+		gameBoard.movePlayer(player, diceValue, gui, this);
 	}
 	
 	/**
@@ -328,16 +328,7 @@ public class GameMaster {
 	 * @param diceValue the dice value
 	 */
 	public void movePlayer(Player player, int diceValue) {
-		IOwnable currentPosition = player.getPosition();
-		int positionIndex = gameBoard.queryCellIndex(currentPosition.getName());
-		int newIndex = (positionIndex+diceValue)%gameBoard.getCellNumber();
-		if(newIndex <= positionIndex || diceValue > gameBoard.getCellNumber()) {
-			player.setMoney(player.getMoney() + 200);
-		}
-		player.setPosition(gameBoard.getCell(newIndex));
-		gui.movePlayer(getPlayerIndex(player), positionIndex, newIndex);
-		playerMoved(player);
-		updateGUI();
+		gameBoard.movePlayer(player, diceValue, gui, this);
 	}
 
 	/**
