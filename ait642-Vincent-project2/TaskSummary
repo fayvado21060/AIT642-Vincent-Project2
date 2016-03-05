@@ -1,0 +1,112 @@
+Project 1 Task #5
+Bonita Faye Vincent
+Spring 2016
+AIT642
+
+Task Comments
+Task #6
+I believe that the omission of Eclipse’s refraction the field “owner” to “theOwner”
+ was not an oversight.  The field name “owner” in this method is a parameter. 
+  As long as “owner” in the parentheses is the same as the field “owner” between
+   the brackets of the setTheOwner method it is okay.
+   
+This is almost the same as a find and replace but the Eclipse’s refactoring 
+does it more intelligently.  This works much faster and it easily determine 
+between classes that use the same field name which need to change and which
+ need to remain the same.
+ 
+Task #7
+This task was pretty easy to do.  It will take more experience to determine which
+ code needs to be pushed up or pull down.  I understood the reference of the code
+  given and why we had to pull it back up once we pushed it down.  It is really 
+  cool/useful that Eclipse can show you the reference errors that are created once
+   the pushed up/down is completed.
+   
+This could be very helpful in fixing the design smell of an oversize class or 
+superclass or creating a subclass that needs to take on more characteristic of 
+its superclass.  This would aid in creating a class that eliminates duplicate
+ code in two classes or reducing the size of a method parameter by placing them
+  into new method.
+ 
+Task #8
+This task was a little harder to complete.  The refactoring was the easy part 
+determining what to refractor and why took a little reading and comprehension.  
+I looked at several examples to understand what needed to be added to the interface.
+
+  Since it was to describe an item that was own I choice to getName, getTheOwner, 
+  getPrice, SetTheOwner, isAvailable and setAvailable.  Once this task was completed
+   these are the files that were created:  IOwnable.java; below this was created a 
+   package with an interface IOwnable with the methods getName, getPrice, 
+   getTheOwner, isAvailable, setAvailable, setTheOwner.
+ 
+Task #9
+In this task the first time I highlighted the code to create the new method
+ calculateMonopoliesRent, it did not give the option to “Extract a Method”.  
+ I rechecked the highlighted code and realized I had missed the last two brackets.  
+ Once the brackets were included in the highlighted code the option appeared.  
+ I chose to include the String array declaration.  I did this because if the player 
+ does not have any monopolies this code does not have to be executed 
+ (you can include an “if statement” for this).  This also only has one parameter whereas the other option without the string 
+ declaration has two parameters.
+ 
+Task #10
+This was an easy task to complete, just highlighting the code and a simple right 
+click.  By creating a local variable from repeating code it makes the code easier
+ to read and understand.  This would not be good for a function if it has many 
+ parameter.  I tried it on my code from project #1 which had a numerous methods 
+ that had many parameters.  It can affect the correctness of a program if it is 
+ not place in the correct location of a method doing a calculation.
+ 
+Task #11
+This task took the longest so far to do.  I made the changes but was not careful 
+with changes the code around the return statement.  I had to recommit and take my 
+changes out and redo the changes.  It is not easy changing the signature of a method.
+  The code in various class had if statements that had to be accounted for.  
+  This would be helpful for design smell in which the data name that does not
+   really reflect what the code is doing, or the method is a function and has too
+    much going on to be a function.  The function could be broken down and made two
+     functions or a function and a method.
+ 
+Task #14
+For this task I refactored my code by extracting method from the calculation within 
+my code.  This allowed my code to be easier to read and understand. 
+ It also place the calculation in one spot.  Therefore if there was a change
+  to the calculation there would not be duplication of code mistake in changing
+   the calculation in one place but not the other.
+ 
+ 
+ 
+ 
+ 
+ 
+Task #15
+ Summary of what I learned from this project.
+This project increased my knowledge of Eclipse and it’s allowed me to become more
+ familiar with its features.  I learned how to install the plug-ins JAutodoc and JDeodorant using the marketplace and via a website.  I became more proficient in using GitHub online and desktop version.  I even was able to pull back one of my commits to undo my changes when I could not get the changes to compile my project without errors.  By reviewing the code, I became more familiar with Java coding and different methods of coding.  It is a huge change from my experience with COBOL coding.  Using Junit was helpful to ensure that the code was still correct after changes was were made
+Before I was able begin with the refactoring task, I had to read, study, review and 
+re-review Java code and its syntax.  I had to learn the difference between subclass
+ and superclass and learn how to create an interfaces enable to understand what was 
+ needed for me to complete the refactoring tasks.  I am still not comfortable with
+  all of Java’s syntax but I am better than where I started at the beginning
+   of class.  I now know that refactoring can be as simple as a name change of a field, method or class or as complicated (to me) as pushing and pulling code within the project and its effect on surrounding code.
+ 
+What I like about Eclipse’s Refactoring support
+My favorite feature of Eclipse’s Refactoring support would have to be the ability
+ to preview the action before it is completed.  I also like the fact that it is
+  easily undoable using Ctrl-Z.  I like that will not allow highlighted code to 
+  be refactored until it is valid. I also like that does name changes intelligently
+   by not changing a name that would cause changes to the logic.  Those are a few of it’s strengths.
+Some of Eclipse Refactoring limitations really caused me grief. 
+ 
+Since my knowledge of Java is not really strong, it was a challenge to determine how to best do the interface and add code to the project to push and pull of the methods.
+ 
+ 
+ 
+Importance of unit testing when doing refactoring
+Unit testing when doing refactoring ensures that the code still operates the same
+ after the code has been refactored.  The point of refactoring is the make the code
+  easier to read and understand without changing the logic of what the program/code
+   is doing.  As changes each made the code should be tested to ensure that the
+    refactoring did not change the logic of the coded change and of the surrounding
+     code.
+
