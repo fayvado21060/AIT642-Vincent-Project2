@@ -3,6 +3,8 @@ package edu.towson.cis.cosc603.project2.monopoly;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 
 // TODO: Auto-generated Javadoc
@@ -431,5 +433,17 @@ public class Player {
     	properties = new ArrayList<PropertyCell>();
     	railroads = new ArrayList<Cell>();
     	utilities = new ArrayList<Cell>();
+	}
+
+	public void displayInfo(JLabel lblName, JLabel lblMoney,
+			JTextArea txtProperty) {
+		lblName.setText(getName());
+		lblMoney.setText("$ " + getMoney());
+		StringBuffer buf = new StringBuffer();
+		IOwnable[] cells = getAllProperties();
+		for (int i = 0; i < cells.length; i++) {
+			buf.append(cells[i] + "\n");
+		}
+		txtProperty.setText(buf.toString());
 	}
 }
