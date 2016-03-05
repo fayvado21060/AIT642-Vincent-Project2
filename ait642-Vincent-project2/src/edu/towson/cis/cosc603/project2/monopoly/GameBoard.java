@@ -202,4 +202,14 @@ public class GameBoard {
 		gui.setEndTurnEnabled(true);
 		return card;
 	}
+
+	/**
+	 * Send to jail.
+	 * @param player  the player
+	 * @param gui
+	 * @param gameMaster
+	 */
+	public void sendToJail(Player player, MonopolyGUI gui, GameMaster gameMaster) {
+		gameMaster.sendToJail(player, gui, this);
+	}
 }

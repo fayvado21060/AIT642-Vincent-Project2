@@ -397,14 +397,7 @@ public class GameMaster {
 	 * @param player the player
 	 */
 	public void sendToJail(Player player) {
-	    int oldPosition = gameBoard.queryCellIndex(getCurrentPlayer().getPosition().getName());
-		player.setPosition(gameBoard.queryCell("Jail"));
-		player.setInJail(true);
-		int jailIndex = gameBoard.queryCellIndex("Jail");
-		gui.movePlayer(
-		        getPlayerIndex(player),
-		        oldPosition,
-		        jailIndex);
+	    gameBoard.sendToJail(player, gui, this);
 	}
     
 	/**
@@ -517,5 +510,20 @@ public class GameMaster {
 	 */
 	public void setTestMode(boolean b) {
 		testMode = b;
+	}
+
+	/**
+	 * Send to jail.
+	 * @param player   the player
+	 * @param gui
+	 * @param gameBoard
+	 */
+	public void sendToJail(Player player, MonopolyGUI gui, GameBoard gameBoard) {
+		int oldPosition = gameBoard.queryCellIndex(getCurrentPlayer()
+				.getPosition().getName());
+		player.setPosition(gameBoard.queryCell("Jail"));
+		player.setInJail(true);
+		int jailIndex = gameBoard.queryCellIndex("Jail");
+		gui.movePlayer(getPlayerIndex(player), oldPosition, jailIndex);
 	}
 }
