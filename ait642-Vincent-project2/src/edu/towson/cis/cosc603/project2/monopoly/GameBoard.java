@@ -181,4 +181,25 @@ public class GameBoard {
     public void removeCards() {
         communityChestCards.clear();
     }
+
+	/**
+	 * Btn draw card clicked.
+	 * @param gui
+	 * @param gameMaster
+	 * @return  the card
+	 */
+	public Card btnDrawCardClicked(MonopolyGUI gui, GameMaster gameMaster) {
+		gui.setDrawCardEnabled(false);
+		CardCell cell = (CardCell) gameMaster.getCurrentPlayer().getPosition();
+		Card card = null;
+		if (cell.getType() == Card.TYPE_CC) {
+			card = drawCCCard();
+			card.applyAction();
+		} else {
+			card = drawChanceCard();
+			card.applyAction();
+		}
+		gui.setEndTurnEnabled(true);
+		return card;
+	}
 }

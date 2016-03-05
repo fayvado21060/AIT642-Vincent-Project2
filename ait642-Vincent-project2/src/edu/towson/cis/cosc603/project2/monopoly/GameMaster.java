@@ -73,18 +73,7 @@ public class GameMaster {
      * @return the card
      */
     public Card btnDrawCardClicked() {
-        gui.setDrawCardEnabled(false);
-        CardCell cell = (CardCell)getCurrentPlayer().getPosition();
-        Card card = null;
-        if(cell.getType() == Card.TYPE_CC) {
-            card = getGameBoard().drawCCCard();
-            card.applyAction();
-        } else {
-            card = getGameBoard().drawChanceCard();
-            card.applyAction();
-        }
-        gui.setEndTurnEnabled(true);
-        return card;
+        return gameBoard.btnDrawCardClicked(gui, this);
     }
 
     /**
