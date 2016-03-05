@@ -86,14 +86,16 @@ public class PropertyCell extends Cell {
 	/* (non-Javadoc)
 	 * @see edu.towson.cis.cosc442.project1.monopoly.Cell#playAction()
 	 */
-	public void playAction() {
+	public Boolean playAction(String msg) {
 		Player currentPlayer = null;
 		if(!isAvailable()) {
 			currentPlayer = GameMaster.instance().getCurrentPlayer();
 			if(theOwner != currentPlayer) {
 				currentPlayer.payRentTo(theOwner, getRent());
+				return true;
 			}
 		}
+		return true;
 	}
 
 	/**
